@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f2f2f2;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        input {
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result-box {
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Simple Calculator</h2>
+
+    <label for="num1">Enter first number:</label>
+    <input type="number" id="num1">
+
+    <label for="num2">Enter second number:</label>
+    <input type="number" id="num2">
+
+    <button onclick="calculate('addition')">Addition</button>
+    <button onclick="calculate('subtraction')">Subtraction</button>
+    <button onclick="calculate('multiplication')">Multiplication</button>
+    <button onclick="calculate('division')">Division</button>
+
+    <div class="result-box" id="result"></div>
+
+    <script>
+        function calculate(operation) {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+            var result;
+
+            switch (operation) {
+                case 'addition':
+                    result = num1 + num2;
+                    break;
+                case 'subtraction':
+                    result = num1 - num2;
+                    break;
+                case 'multiplication':
+                    result = num1 * num2;
+                    break;
+                case 'division':
+                    result = num1 / num2;
+                    break;
+                default:
+                    result = 'Invalid operation';
+            }
+
+            document.getElementById("result").innerText = operation.charAt(0).toUpperCase() + operation.slice(1) + ': ' + result;
+        }
+    </script>
+
+</body>
+</html>
